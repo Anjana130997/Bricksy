@@ -1,0 +1,23 @@
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.load-more-btn {
+  display: block;
+  margin: 30px auto;
+  padding: 14px 28px;
+  background-color: #000;  /* Black */
+  color: #fff;             /* White text */
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.load-more-btn:hover {
+  background-color: #333;  /* Slightly lighter on hover */
+}

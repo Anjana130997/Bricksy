@@ -1,0 +1,6 @@
+.property-details{ display:grid; grid-template-columns: 1fr; gap:1rem; }
+@media(min-width:900px){ .property-details{ grid-template-columns: 2fr 1fr; } }
+.section{ padding:1rem; }
+.facts{ display:grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap:.6rem; margin:.6rem 0; }
+.facts div{ background:#f8fafc; border:1px solid #eef2f7; padding:.6rem; border-radius:.6rem; display:flex; justify-content:space-between; }
+.desc{ color:var(--muted); }

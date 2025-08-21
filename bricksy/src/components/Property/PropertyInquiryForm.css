@@ -1,0 +1,4 @@
+.inquiry{ padding:1rem; position:sticky; top:80px; }
+.inquiry .form{ display:grid; gap:.5rem; }
+.inquiry input, .inquiry textarea{ padding:.6rem .7rem; border:1px solid #e5e7eb; border-radius:.5rem; }
+.inquiry .note{ margin-top:.5rem; color:green; }

@@ -1,0 +1,7 @@
+.nav{ position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid #e5e7eb; }
+.nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:.7rem 0; }
+.brand{ font-weight:800; letter-spacing:.5px; color:var(--text); }
+.brand span{ color:var(--brand); }
+.links a{ margin-left:1rem; color:var(--muted); }
+.links a.active{ color:var(--brand); font-weight:600; }
+.footer{ border-top:1px solid #e5e7eb; padding:2rem 0; color:var(--muted); background:#fff; }

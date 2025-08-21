@@ -1,0 +1,5 @@
+.compare{ padding:1rem; }
+.compare .head{ display:flex; align-items:center; justify-content:space-between; }
+.compare .table{ margin-top:1rem; }
+.compare .row{ display:grid; grid-template-columns:2fr repeat(5,1fr); gap:.5rem; padding:.6rem; border-bottom:1px solid #eef2f7; }
+.compare .row.header{ background:#f8fafc; font-weight:600; }
