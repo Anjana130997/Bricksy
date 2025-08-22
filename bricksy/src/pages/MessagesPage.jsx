@@ -1,19 +1,45 @@
-import React from 'react'
-import MessageList from '../components/Messages/MessageList.jsx'
-import MessageThread from '../components/Messages/MessageThread.jsx'
+import React, { useState } from 'react';
+import { properties } from '../data/properties.js';
+import { useMessages } from '../context/MessagesContext.jsx';
+import Messages from '../components/Messages/Messages.jsx';
+import './pages.css'
 
+export default function MessagesPage() {
+  const { conversations } = useMessages();
+  const [selectedProperty, setSelectedProperty] = useState(null);
 
-export default function MessagesPage(){
-return (
-<div className='container grid messages-page'>
-<div>
-<h2>Conversations</h2>
-<MessageList/>
-</div>
-<div>
-<h2>Chat</h2>
-<MessageThread/>
-</div>
-</div>
-)
+  const conversationKeys = Object.keys(conversations);
+
+  return (
+    <div className="messages-page container">
+      <div className="conversations-list">
+        <h2>Your Conversations</h2>
+        {conversationKeys.length > 0 ? (
+          conversationKeys.map(pid => {
+            const property = properties.find(p => p.id === parseInt(pid));
+            return (
+              <div
+                key={pid}
+                className={`conversation-item ${selectedProperty === pid ? 'active' : ''}`}
+                onClick={() => setSelectedProperty(pid)}
+              >
+                <h4>{property?.title || 'Property ' + pid}</h4>
+                <p>{property?.city}</p>
+              </div>
+            );
+          })
+        ) : (
+          <p>No conversations yet.</p>
+        )}
+      </div>
+
+      <div className="chat-section-full">
+        {selectedProperty ? (
+          <Messages propertyId={selectedProperty} />
+        ) : (
+          <p>Select a conversation to view messages</p>
+        )}
+      </div>
+    </div>
+  );
 }

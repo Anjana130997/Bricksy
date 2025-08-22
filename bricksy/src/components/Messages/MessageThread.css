@@ -1,8 +1,0 @@
-.thread{ display:grid; gap:.6rem; }
-.bubble-wrap{ display:flex; flex-direction:column; gap:.4rem; background:#fff; border:1px solid #e5e7eb; border-radius:.8rem; padding:.8rem; min-height:260px; }
-.bubble{ max-width:70%; padding:.5rem .7rem; border-radius:1rem; }
-.bubble.me{ margin-left:auto; background:var(--brand); color:#fff; }
-.bubble.other{ background:#f1f5f9; }
-.bubble .time{ font-size:.7rem; color:#e2e8f0; text-align:right; }
-.composer{ display:flex; gap:.4rem; }
-.composer input{ flex:1; padding:.6rem .7rem; border:1px solid #e5e7eb; border-radius:.6rem; }

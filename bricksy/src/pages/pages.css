@@ -1,191 +1,282 @@
-.messages-page{ grid-template-columns: 1fr; gap:1rem; }
-@media(min-width:1000px){ .messages-page{ grid-template-columns: 1fr 2fr; } }
-.homepage {
-  font-family: Arial, sans-serif;
+WHY INVEST SECTION .why-invest {
+    margin: 4rem auto;
+    text-align: center;
 }
 
-/* Hero Section */
-.hero {
-  position: relative;
-  height: 80vh;
-  background: url('/images/hero-bg.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.why-invest h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: #222;
 }
+
+.invest-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.invest-card {
+    background: #fff;
+    padding: 2rem 1.5rem;
+    border-radius: 14px;
+    text-align: center;
+    width: 280px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.invest-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.invest-card img {
+    width: 60px;
+    margin-bottom: 15px;
+}
+
+.invest-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.invest-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* VIEW ALL BUTTON */
+.view-all-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 12px 30px;
+    color:black;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    text-decoration: underline;
+
+}
+
+.view-all-btn:hover {
+    background: black;
+    color:white;
+}
+
+/* LUXURY BANNER */
+.luxury-banner {
+    background: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg') center/cover no-repeat;
+    padding: 5rem 2rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 14px;
+    margin: 4rem auto;
+}
+
+.luxury-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.luxury-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: black;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+    text-align: center;
+    margin: 4rem auto;
+}
+
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.testimonial-grid {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    font-style: italic;
+    position: relative;
+}
+
+.testimonial-card h4 {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #222;
+}
+
+/* CTA BANNER */
+.cta-banner {
+    background: url('https://www.ajc.com/resizer/v2/PI3BEBDIVZONTN2FSPQSDFYC2Y.jpg?auth=390d8e83e388cde2bd5692a583d4890db447a0d1f0ec25a6cb552a51ad471aaf&width=790&height=440&smart=true') center/cover no-repeat;
+    color: #fff;
+    padding: 5rem 2rem;
+    text-align: center;
+    height:50vh;
+    margin: 4rem auto;
+}
+
+.cta-banner h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.homepage {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background: #f9f9f9;
+    line-height: 1.5;
+    margin: 0; /* Remove any top margin */
+    padding: 0; /* Remove any top padding */
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('https://sobharealty.com/sites/default/files/styles/webp/public/2025-05/sobha-lp_0.png.webp?itok=3GKBmrLX') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0; /* Remove space above hero */
+    padding: 0;
+}
+
 
 .hero-overlay {
-  background-color: rgba(0,0,0,0.5);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 .hero-content {
-  text-align: center;
-  color: #fff;
-  padding: 0 2rem;
+    text-align: center;
+    color: #fff;
+    max-width: 650px;
+    padding: 20px;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero-content h1 span {
+    color: #ff5a5f;
 }
 
 .hero-content p {
-  margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
 }
 
 .search-bar {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
+    display: flex;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
+/* Search Bar Inputs */
 .search-bar input,
 .search-bar select {
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  border: none;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 150px;
+    font-size: 1rem;
 }
 
 .search-bar button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #ff5a5f;
-  color: white;
-  cursor: pointer;
+    background: BLACK;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-/* Quick Actions */
-.quick-actions {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
+.search-bar button:hover {
+    background: white;
+    color: black;
 }
-
-.action-card {
-  background-color: #ff5a5f;
-  color: #fff;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.action-card:hover {
-  opacity: 0.9;
-}
-
-/* Featured Properties */
-.featured {
-  margin: 2rem auto;
+.faq-section {
+  padding: 60px 20px;
+  background: #f8f8f8;
   text-align: center;
 }
 
-.property-grid {
+.faq-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.faq-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
 }
 
-/* Benefits Section */
-.benefits {
-  display: flex;
-  justify-content: space-around;
-  margin: 3rem 0;
-  text-align: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+.faq-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.benefit {
-  flex: 1;
-  min-width: 200px;
-  max-width: 300px;
-}
-.property-details {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
-
-.hero {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-content {
-  position: absolute;
-  color: white;
-  text-align: center;
-}
-
-.hero-content h1 {
-  font-size: 2.5rem;
+.faq-item h3 {
+  font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
-.hero-content p {
-  font-size: 1.2rem;
-}
-
-.price {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.image-gallery {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.gallery-image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  margin: 0 10px;
-  cursor: pointer;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  transition: transform 0.3s;
-}
-
-.gallery-image:hover {
-  transform: scale(1.05);
-}
-
-.property-info,
-.contact-section {
-  margin-top: 30px;
-}
-
-.property-info h2,
-.contact-section h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.property-info p,
-.contact-section p {
-  font-size: 1.2rem;
-  margin: 5px 0;
+.faq-item p {
+  color: #555;
+  line-height: 1.6;
 }
