@@ -1,105 +1,137 @@
-import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+// UPDATED: robust image gallery + consistent image path handling + inquiry/login gate kept
+import React, { useMemo, useState } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { properties } from '../data/properties.js';
-import { useMessages } from '../context/MessagesContext.jsx';
 import './pages.css';
+import { useAuth } from '../context/AuthContext.jsx';
+import Messages from '../components/Messages/Messages.jsx';
 
-export default function PropertyDetails() {
+function normalizeImage(img) {
+  if (!img) return null;
+  if (typeof img !== 'string') return null;
+  if (img.startsWith('http://') || img.startsWith('https://') || img.startsWith('data:')) return img;
+  if (img.startsWith('/')) return img;            // already a public path (/images/..., /assets/...)
+  return `/images/${img}`;                        // assume placed in public/images
+}
+
+export default function PropertyDetailsPage() {
+  const { isAuthenticated, user } = useAuth();
   const { id } = useParams();
-  const property = properties.find(p => p.id === parseInt(id));
-  const { conversations, sendMessage, simulateOwnerReply } = useMessages();
+  const navigate = useNavigate();
 
-  const [message, setMessage] = useState('');
+  const property = useMemo(
+    () => properties.find((p) => String(p.id) === String(id)),
+    [id]
+  );
+
+  const [inquiry, setInquiry] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   if (!property) {
     return (
-      <div className="container" style={{ padding: '1rem' }}>
-        <h2>Property not found</h2>
-        <Link to="/properties" className="back-btn">Back to Listings</Link>
+      <div className="container" style={{ padding: '2rem 0', textAlign: 'center' }}>
+        <h2>Property Not Found</h2>
+        <Link to="/property" style={{ color: '#C7A27C', textDecoration: 'underline' }}>
+          Back to Properties
+        </Link>
       </div>
     );
   }
 
-  const propertyMessages = conversations[property.id] || [];
-
-  const handleSend = (e) => {
-    e.preventDefault();
-    if (message.trim()) {
-      sendMessage(property.id, message, 'user');
-      simulateOwnerReply(property.id);
-      setMessage('');
+  // Build a clean gallery array from either property.images[] or single property.image
+  const gallery = useMemo(() => {
+    let imgs = [];
+    if (Array.isArray(property.images) && property.images.length) {
+      imgs = property.images.map(normalizeImage).filter(Boolean);
+    } else if (property.image) {
+      const one = normalizeImage(property.image);
+      if (one) imgs = [one];
     }
+    if (!imgs.length) imgs = ['/placeholder/placeholder.jpg']; // final safety fallback
+    return imgs;
+  }, [property]);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeImage = gallery[Math.min(activeIndex, gallery.length - 1)];
+
+  const handleSubmitInquiry = (e) => {
+    e.preventDefault();
+    if (!isAuthenticated) {
+      navigate('/login', { state: { from: { pathname: `/property/${id}` } } });
+      return;
+    }
+    if (!inquiry.trim()) return;
+
+    const existingInquiries = JSON.parse(localStorage.getItem('inquiries')) || [];
+    const newInquiry = {
+      propertyId: String(property.id),
+      message: inquiry.trim(),
+      date: new Date().toISOString(),
+      user: user?.name || user?.email || 'User',
+    };
+    localStorage.setItem('inquiries', JSON.stringify([...existingInquiries, newInquiry]));
+    setSubmitted(true);
+    setInquiry('');
   };
 
   return (
-    <div className="property-details container">
-      {/* Header */}
-      <div className="property-header">
+    <div className="container property-details">
+      <div className="details-header">
         <h1>{property.title}</h1>
-        <p>{property.city}, {property.neighborhood}</p>
+        <p>{property.location || property.city}</p>
       </div>
 
-      {/* Image Gallery */}
-      <div className="property-gallery">
-        <img src={property.image} alt={property.title} className="main-image" />
-        {property.images && (
-          <div className="thumb-gallery">
-            {property.images.map((img, idx) => (
-              <img key={idx} src={img} alt={`Thumbnail ${idx}`} />
-            ))}
+      <div className="details-main">
+        {/* Image Gallery */}
+        <div className="details-gallery">
+          <div className="details-main-image-wrap">
+            <img
+              src={activeImage}
+              alt={`${property.title} - image ${activeIndex + 1}`}
+              className="details-image"
+              loading="eager"
+            />
           </div>
-        )}
-      </div>
 
-      {/* Property Info */}
-      <div className="property-info-section">
-        <h2>Price: ₹{property.price.toLocaleString()}</h2>
-        <p><strong>Bedrooms:</strong> {property.bedrooms}</p>
-        <p><strong>Bathrooms:</strong> {property.bathrooms}</p>
-        <p><strong>Area:</strong> {property.area} sq ft</p>
-        <p><strong>Year Built:</strong> {property.yearBuilt}</p>
-        <p><strong>Type:</strong> {property.type}</p>
-
-        <p><strong>Description:</strong>         {property.features && (
-          <div className="features-list">
-            {property.features.map((f, i) => (
-              <span key={i} className="feature-badge">{f}</span>
-            ))}
-          </div>
-        )}|| 'No description available.'</p>
-      </div>
-
-      {/* Chat Section */}
-      <div className="chat-section">
-        <h3>Chat with Owner</h3>
-        <div className="chat-box">
-          {propertyMessages.length > 0 ? (
-            propertyMessages.map(msg => (
-              <div key={msg.id} className={`chat-msg ${msg.from}`}>
-                <p>{msg.text}</p>
-                <span>{new Date(msg.ts).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
-              </div>
-            ))
-          ) : (
-            <p className="no-messages">Start a conversation with the owner</p>
+          {gallery.length > 1 && (
+            <div className="details-thumbs">
+              {gallery.map((src, i) => (
+                <button
+                  key={`${src}-${i}`}
+                  type="button"
+                  className={`thumb ${i === activeIndex ? 'active' : ''}`}
+                  onClick={() => setActiveIndex(i)}
+                  aria-label={`Show image ${i + 1}`}
+                >
+                  <img src={src} alt={`thumb ${i + 1}`} />
+                </button>
+              ))}
+            </div>
           )}
         </div>
 
-        <form className="chat-input" onSubmit={handleSend}>
-          <input
-            type="text"
-            placeholder="Type a message..."
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <button type="submit">Send</button>
-        </form>
+        {/* Info */}
+        <div className="details-info">
+          <h2>Price: ₹{property.price?.toLocaleString?.() ?? property.price}</h2>
+          <p>{property.description}</p>
+          <ul>
+            <li><strong>Bedrooms:</strong> {property.bedrooms}</li>
+            <li><strong>Bathrooms:</strong> {property.bathrooms}</li>
+            <li><strong>Area:</strong> {property.area} sq.ft</li>
+          </ul>
+
+          <Link to="/property" className="cta-btn" style={{ display: 'inline-block', marginTop: 16 }}>
+            Back to Listings
+          </Link>
+        </div>
       </div>
 
-      {/* Action Buttons */}
-      <div className="property-actions">
-        <Link to="/messages" className="btn-primary">Go to All Messages</Link>
-        <Link to="/properties" className="btn-secondary">Back to Listings</Link>
+    
+
+      {/* Inline chat with owner (optional – uses the same MessagesContext, keys by property id) */}
+      <div className="inline-messages">
+        <h3>Chat with Owner</h3>
+        <Messages propertyId={String(property.id)} />
       </div>
     </div>
   );

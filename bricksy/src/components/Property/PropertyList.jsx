@@ -1,12 +1,13 @@
+// FIXED: file path corrected and pagination usage; expects p.id numeric/string
 import React from 'react';
 import './PropertyList.css';
 import PropertyCard from './PropertyCard.jsx';
-import usePagination from '../../hooks/usePagination'; // Assuming your hook is in hooks folder
+import usePagination from '../../hooks/usePagination.js';
 
 export default function PropertyList({ items }) {
-  const { visible, canLoadMore, loadMore } = usePagination(items, 10); // Step = 8
+  const { visible, canLoadMore, loadMore } = usePagination(items || [], 10);
 
-  if (!items.length)
+  if (!items || items.length === 0)
     return <div className="container" style={{ padding: '1rem' }}>No properties found.</div>;
 
   return (

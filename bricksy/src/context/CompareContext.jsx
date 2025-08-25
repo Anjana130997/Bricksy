@@ -1,35 +1,31 @@
+// UPDATED: uses numeric compareIds and exposes consistent helpers
 import React, { createContext, useContext } from 'react';
-import useLocalStorage from '../hooks/useLocalStorage.js';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const CompareContext = createContext();
 export const useCompare = () => useContext(CompareContext);
 
 export function CompareProvider({ children }) {
-  // Store numeric IDs
-  const [compareIds, setCompareIds] = useLocalStorage('compare', []);
+  const [compareIds, setCompareIds] = useLocalStorage('compare', []); // numeric ids
 
-  // Check if property is in compare list
-  const inCompare = (id) => compareIds.includes(Number(id));
-
-  // Toggle compare (max 4 properties)
-  const toggleCompare = (id) => {
-    const numericId = Number(id);
-    setCompareIds((prev) =>
-      prev.includes(numericId)
-        ? prev.filter((x) => x !== numericId)
-        : prev.length >= 4
-        ? prev // Do nothing if max reached
-        : [...prev, numericId]
-    );
+  const inCompare = (id) => {
+    const n = Number(id);
+    return compareIds.includes(n);
   };
 
-  // Clear all compared properties
+  const toggleCompare = (id) => {
+    const n = Number(id);
+    setCompareIds((prev) => {
+      if (prev.includes(n)) return prev.filter((x) => x !== n);
+      if (prev.length >= 4) return prev; // limit 4
+      return [...prev, n];
+    });
+  };
+
   const clearCompare = () => setCompareIds([]);
 
   return (
-    <CompareContext.Provider
-      value={{ compareIds, inCompare, toggleCompare, clearCompare }}
-    >
+    <CompareContext.Provider value={{ compareIds, inCompare, toggleCompare, clearCompare }}>
       {children}
     </CompareContext.Provider>
   );

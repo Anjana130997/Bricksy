@@ -1,27 +1,24 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Property from '../pages/Property.jsx'
-import ComparePage from '../pages/ComparePage.jsx'
-import FavoritesPage from '../pages/FavoritesPage.jsx'
-import MessagesPage from '../pages/MessagesPage.jsx'
-import PropertyDetailsPage from '../pages/PropertyDetailsPage.jsx'
-import Home from "../pages/Home.jsx"
-import Login from '../pages/Login.jsx'
-import Signup from '../pages/Signup.jsx'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from '../pages/Home';
+import Property from '../pages/Property';
+import PropertyDetailsPage from '../pages/PropertyDetailsPage';
+import Signup from '../pages/Signup';
+import Login from '../pages/Login';
+import Messages from '../pages/Messages';
+import ProtectedRoute from '../components/';
 
-export default function AppRoutes(){
-return (
-<Routes>
-<Route path="/" element={<Home/>} />
-<Route path="/property" element={<Property/>} />
-<Route path="/property/:id" element={<PropertyDetailsPage/>} />
-<Route path="/favorites" element={<FavoritesPage/>} />
-<Route path="/compare" element={<ComparePage/>} />
-<Route path="/messages" element={<MessagesPage/>} />
-<Route path="/login" element={<Login/>} />
-<Route path="/signup" element={<Signup/>} />
-
-<Route path="*" element={<div className='container' style={{padding:'2rem 0'}}>Not Found</div>} />
-</Routes>
-)
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        
+        <Route path="/property" element={<ProtectedRoute><Property /></ProtectedRoute>} />
+        <Route path="/property/:id" element={<ProtectedRoute><PropertyDetailsPage /></ProtectedRoute>} />
+        <Route path="/messages" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
+      </Routes>
+    </Router>
+  );
 }

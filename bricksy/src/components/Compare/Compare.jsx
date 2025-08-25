@@ -1,3 +1,4 @@
+// KEPT: compare view uses numeric IDs and CompareContext
 import React from 'react';
 import './Compare.css';
 import { useCompare } from '../../context/CompareContext.jsx';

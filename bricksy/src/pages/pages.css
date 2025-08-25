@@ -1,282 +1,492 @@
-WHY INVEST SECTION .why-invest {
-    margin: 4rem auto;
-    text-align: center;
+/* ===== GENERAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.why-invest h2 {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    color: #222;
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #222;
+  line-height: 1.6;
 }
 
-.invest-grid {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.invest-card {
-    background: #fff;
-    padding: 2rem 1.5rem;
-    border-radius: 14px;
-    text-align: center;
-    width: 280px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ===== HERO SECTION ===== */
+.hero.luxury-hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  background: url('https://sobharealty.com/sites/default/files/styles/webp/public/2025-05/sobha-lp_0.png.webp?itok=3GKBmrLX') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.invest-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
-}
-
-.invest-card img {
-    width: 60px;
-    margin-bottom: 15px;
-}
-
-.invest-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    color: #111;
-}
-
-.invest-card p {
-    font-size: 1rem;
-    color: #555;
-}
-
-/* VIEW ALL BUTTON */
-.view-all-btn {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 12px 30px;
-    color:black;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-    text-decoration: underline;
-
-}
-
-.view-all-btn:hover {
-    background: black;
-    color:white;
-}
-
-/* LUXURY BANNER */
-.luxury-banner {
-    background: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg') center/cover no-repeat;
-    padding: 5rem 2rem;
-    text-align: center;
-    color: #fff;
-    border-radius: 14px;
-    margin: 4rem auto;
-}
-
-.luxury-content h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.luxury-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.cta-btn {
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s ease;
-}
-
-.cta-btn:hover {
-    background: black;
-}
-
-/* TESTIMONIALS */
-.testimonials {
-    text-align: center;
-    margin: 4rem auto;
-}
-
-.testimonials h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-.testimonial-grid {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.testimonial-card {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    width: 320px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    font-style: italic;
-    position: relative;
-}
-
-.testimonial-card h4 {
-    margin-top: 1rem;
-    font-weight: 700;
-    color: #222;
-}
-
-/* CTA BANNER */
-.cta-banner {
-    background: url('https://www.ajc.com/resizer/v2/PI3BEBDIVZONTN2FSPQSDFYC2Y.jpg?auth=390d8e83e388cde2bd5692a583d4890db447a0d1f0ec25a6cb552a51ad471aaf&width=790&height=440&smart=true') center/cover no-repeat;
-    color: #fff;
-    padding: 5rem 2rem;
-    text-align: center;
-    height:50vh;
-    margin: 4rem auto;
-}
-
-.cta-banner h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-}
-
-.homepage {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    background: #f9f9f9;
-    line-height: 1.5;
-    margin: 0; /* Remove any top margin */
-    padding: 0; /* Remove any top padding */
-}
-
-.hero {
-    position: relative;
-    height: 100vh;
-    background: url('https://sobharealty.com/sites/default/files/styles/webp/public/2025-05/sobha-lp_0.png.webp?itok=3GKBmrLX') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0; /* Remove space above hero */
-    padding: 0;
-}
-
 
 .hero-overlay {
-    
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 60, 64, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
-    text-align: center;
-    color: #fff;
-    max-width: 650px;
-    padding: 20px;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 15px;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .hero-content h1 span {
-    color: #ff5a5f;
+  color: #C7A27C;
 }
 
 .hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 25px;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
+/* Search Bar */
 .search-bar {
-    display: flex;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 650px;
+  margin: auto;
 }
 
-/* Search Bar Inputs */
-.search-bar input,
+.search-bar input {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
 .search-bar select {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    flex: 1;
-    min-width: 150px;
-    font-size: 1rem;
+  padding: 14px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
 }
 
 .search-bar button {
-    background: BLACK;
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  background: #C7A27C;
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .search-bar button:hover {
-    background: white;
-    color: black;
+  background: #a88966;
 }
-.faq-section {
+
+/* ===== WHY INVEST ===== */
+.why-invest {
+  text-align: center;
   padding: 60px 20px;
-  background: #f8f8f8;
+}
+
+.why-invest h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #1A3C40;
+}
+
+.invest-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.invest-card {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.invest-card img {
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+.invest-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== FEATURED LISTINGS ===== */
+.featured {
+  padding: 60px 20px;
   text-align: center;
 }
 
-.faq-section h2 {
-  font-size: 2.2rem;
+.featured h2 {
+  font-size: 2rem;
   margin-bottom: 30px;
+  color: #1A3C40;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.view-all-btn {
+  display: inline-block;
+  margin-top: 30px;
+  background-color :transparent;
+  border:2px solid white;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background: white;
+  color:black;
+}
+
+/* ===== LUXURY BANNER ===== */
+.luxury-banner {
+  background: url('https://i.ytimg.com/vi/B56pik49Y5s/maxresdefault.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+  height:60vh;
+}
+
+.luxury-content {
+  position: relative;
+  z-index: 1;
+}
+
+.luxury-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  background-color :transparent;
+  border:2px solid white;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: white;
+  color:black;
+}
+
+/* ===== FAQ ===== */
+.faq-section {
+  padding: 60px 20px;
+}
+
+.faq-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1A3C40;
 }
 
 .faq-list {
-  display: grid;
-  gap: 20px;
   max-width: 800px;
-  margin: 0 auto;
-  text-align: left;
+  margin: auto;
 }
 
 .faq-item {
-  background: #fff;
+  background: #f9f9f9;
   padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* ===== CTA Banner ===== */
+.cta-banner {
+  background:url("https://www.constructionweekonline.in/cloud/2021/11/25/qql7Fgdl-luxury_1-3.jpg");
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+  height:60vh;
+}
+
+.cta-banner h2 {
+  margin-bottom: 20px;
+}
+
+.cta-banner .cta-btn {
+  background-color :transparent;
+  border:2px solid white
+}
+
+.cta-banner .cta-btn:hover{
+  background-color :white;
+  color:black;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .search-bar {
+    flex-direction: column;
+  }
+  .search-bar input, .search-bar select, .search-bar button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* DISABLED STATES & NAVBAR/BTN tweaks */
+.disabled-link,
+a.disabled-link {
+  pointer-events: auto;
+  opacity: 0.5;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+button[aria-disabled="true"],
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.nav-welcome {
+  color: #f5f5f5;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.nav-logout {
+  margin-left: 12px;
+  background: #C7A27C;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nav-logout:hover { background: #a88966; }
+
+.main { padding-top: 0; }
+
+.card input, .card textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+.card .btn {
+  background: #C7A27C;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===== PROPERTY DETAILS PAGE (UPDATED) ===== */
+.property-details {
+  padding: 70px 20px;
+  background: #fdfdfd;
+}
+.property-details img {
+  width: 100%;
+  max-width: 800px;   /* keeps it from being too large */
+  height: 400px;      /* uniform medium size */
+  object-fit: cover;  /* crops to fill nicely */
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  display: block;
+  margin: 0 auto 2rem; /* centers the image */
+}
+.details-header {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.faq-item h3 {
-  font-size: 1.2rem;
+.details-header h1 {
+  font-size: 2.8rem;
+  color: #1A3C40;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.details-header p {
+  font-size: 1.15rem;
+  color: #666;
+  max-width: 700px;
+  margin: auto;
+}
+
+.details-main {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
+
+.details-image {
+  flex: 1;
+  max-width: 550px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+}
+
+.details-image:hover {
+  transform: scale(1.02);
+}
+
+.details-info {
+  flex: 1;
+  padding: 10px;
+}
+
+.details-info h2 {
+  color: #C7A27C;
+  margin-bottom: 18px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.details-info p {
+  margin-bottom: 20px;
+  color: #444;
+  line-height: 1.7;
+}
+
+.details-info ul {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.details-info ul li {
   margin-bottom: 10px;
+  font-size: 1.05rem;
+  position: relative;
+  padding-left: 22px;
 }
 
-.faq-item p {
-  color: #555;
-  line-height: 1.6;
+.details-info ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #C7A27C;
+  font-size: 1rem;
+}
+
+.details-info strong {
+  color: #1A3C40;
+}
+
+/* Inquiry Section */
+.inquiry-section {
+  background: #fff;
+  padding: 35px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  max-width: 850px;
+  margin: auto;
+  border: 1px solid #eee;
+}
+
+.inquiry-section h3 {
+  margin-bottom: 18px;
+  color: #1A3C40;
+  font-size: 1.5rem;
+}
+
+.inquiry-form textarea,
+.inquiry-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  resize: vertical;
+  font-family: inherit;
+  transition: border 0.3s ease;
+}
+
+.inquiry-form textarea:focus,
+.inquiry-form input:focus {
+  border-color: #C7A27C;
+  outline: none;
+}
+
+.inquiry-form button {
+  background: #C7A27C;
+  border: none;
+  color: #fff;
+  padding: 12px 22px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.inquiry-form button:hover {
+  background: #a88966;
+}
+
+.success-message {
+  color: green;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .details-main {
+    flex-direction: column;
+  }
+
+  .details-image {
+    max-width: 100%;
+  }
+
+  .details-header h1 {
+    font-size: 2rem;
+  }
 }

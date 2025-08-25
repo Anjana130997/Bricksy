@@ -1,14 +1,30 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import App from './App.jsx'
-import './index.css'
+// UPDATED: mount all context providers here so every component can access them
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App.jsx';
+import './index.css';
 
+import { AuthProvider } from './context/AuthContext.jsx';
+import { FavoritesProvider } from './context/FavoritesContext.jsx';
+import { CompareProvider } from './context/CompareContext.jsx';
+import { FilterProvider } from './context/FilterContext.jsx';
+import { MessagesProvider } from './context/MessagesContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-<React.StrictMode>
-<BrowserRouter>
-<App />
-</BrowserRouter>
-</React.StrictMode>
-)
+  <React.StrictMode>
+    <AuthProvider>
+      <FavoritesProvider>
+        <CompareProvider>
+          <FilterProvider>
+            <MessagesProvider>
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
+            </MessagesProvider>
+          </FilterProvider>
+        </CompareProvider>
+      </FavoritesProvider>
+    </AuthProvider>
+  </React.StrictMode>
+);

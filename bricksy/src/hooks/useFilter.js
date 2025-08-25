@@ -1,21 +1,21 @@
-
-import { useState, useEffect } from "react";
+// KEPT: local filter hook (works with property arrays) — unchanged except exported default name
+import { useState, useEffect } from 'react';
 
 export default function useFilter(properties) {
   const [filters, setFilters] = useState({
-    location: "",
-    minPrice: "",
-    maxPrice: "",
-    bedrooms: "",
+    location: '',
+    minPrice: '',
+    maxPrice: '',
+    bedrooms: '',
   });
-  const [filteredProperties, setFilteredProperties] = useState(properties);
+  const [filteredProperties, setFilteredProperties] = useState(properties || []);
 
   useEffect(() => {
-    let result = properties;
+    let result = properties || [];
 
     if (filters.location) {
       result = result.filter((p) =>
-        p.location.toLowerCase().includes(filters.location.toLowerCase())
+        String(p.location || p.city || '').toLowerCase().includes(filters.location.toLowerCase())
       );
     }
 
