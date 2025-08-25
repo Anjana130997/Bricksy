@@ -8,7 +8,6 @@ import './index.css';
 import { AuthProvider } from './context/AuthContext.jsx';
 import { FavoritesProvider } from './context/FavoritesContext.jsx';
 import { CompareProvider } from './context/CompareContext.jsx';
-import { FilterProvider } from './context/FilterContext.jsx';
 import { MessagesProvider } from './context/MessagesContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -16,13 +15,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <FavoritesProvider>
         <CompareProvider>
-          <FilterProvider>
+        
             <MessagesProvider>
               <BrowserRouter>
                 <App />
               </BrowserRouter>
             </MessagesProvider>
-          </FilterProvider>
+         
         </CompareProvider>
       </FavoritesProvider>
     </AuthProvider>
