@@ -1,58 +1,62 @@
-Brickssy
+# 🏡 Brickssy
 
-Brickssy is a modern, responsive web application built using Vite and React. It serves as a showcase for the capabilities of these technologies, offering a fast and interactive user experience.
+![Brickssy Screenshot](https://github.com/Anjana130997/Bricksy/blob/master/Bricksy/Screenshot%202025-10-16%20115259.png?raw=true)
 
-🚀 Features
+**Brickssy** is a modern, responsive real estate web application built with **Vite** and **React**. It provides a seamless platform to explore premium properties while showcasing the efficiency and performance of modern frontend technologies.
 
-Fast Development Environment: Powered by Vite for rapid builds and hot module replacement.
+---
 
-Component-Based Architecture: Utilizes React components for a modular and maintainable codebase.
+## 🚀 Features
 
-Responsive Design: Ensures optimal viewing across a wide range of devices, from desktop monitors to mobile phones.
+- ⚡ **Fast Development Environment:** Powered by **Vite** for lightning-fast builds and hot module replacement (HMR).  
+- 🧩 **Component-Based Architecture:** Built using reusable and modular **React** components for scalability and maintainability.  
+- 📱 **Responsive Design:** Optimized for smooth performance across all screen sizes — from desktops to smartphones.  
+- ✨ **Modern JavaScript (ES6+):** Implements the latest JavaScript features for clean and efficient code.  
+- 🔀 **Smooth Navigation:** Integrated with **React Router** for seamless, dynamic routing.  
 
-Modern JavaScript Syntax: Leverages ES6+ features for cleaner and more efficient code.
+---
 
-🛠️ Technologies Used
+## 🛠️ Technologies Used
 
-Vite: A next-generation, fast build tool that provides a smooth development experience.
+- **Vite** – Next-generation build tool for rapid development.  
+- **React** – Library for building interactive user interfaces.  
+- **CSS Modules** – Scoped styling to ensure modular and conflict-free design.  
+- **React Router** – Handles page navigation with client-side routing.  
 
-React: A JavaScript library for building user interfaces, enabling the creation of reusable UI components.
+---
 
-CSS Modules: Scoped CSS to avoid class name conflicts and ensure styles are applied locally.
+## 💻 Installation & Setup
 
-React Router: For navigation and rendering of different components based on the URL.
+To run this project locally, follow the steps below:
 
-📦 Installation
+# Clone the repository
+git clone https://github.com/Anjana130997/Bricksy.git
+cd Bricksy
 
-To run this project locally, follow these steps:
-
-Clone the repository:
-
-git clone https://github.com/yourusername/brickssy.git
-cd brickssy
-
-
-Install dependencies:
-
+# Install dependencies
 npm install
 
-
-Start the development server:
-
+# Start the development server
 npm run dev
+Once the server starts, open your browser and go to:
 
+👉 http://localhost:3000
 
-Open your browser and navigate to http://localhost:3000 to view the application.
+⚙️ Available Scripts
+Command	Description
+npm run dev	Starts the development server with hot reloading.
+npm run build	Builds the app for production.
+npm run preview	Previews the production build locally.
 
-⚙️ Scripts
+🧠 Overview
+Brickssy offers a visually engaging platform to explore luxury properties in prime locations. Designed for speed and user experience, it combines performance, responsiveness, and elegant UI elements.
 
-npm run dev: Starts the development server with hot module replacement.
-
-npm run build: Builds the application for production.
-
-npm run preview: Previews the production build locally.
+This project demonstrates modern web development practices using Vite and React for a high-quality, professional web application.
 
 📄 License
+This project is licensed under the MIT License — see the LICENSE file for details.
 
-This project is licensed under the MIT License - see the LICENSE
- file for details.
+
+- The line  
+  ```markdown
+  ![Brickssy Screenshot](https://github.com/Anjana130997/Bricksy/blob/master/Bricksy/Scre
