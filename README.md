@@ -1,6 +1,7 @@
 # 🏡 Brickssy
 
-![Brickssy Screenshot](./assets/Screenshot 2025-10-16 115259.png)
+![Brickssy Screenshot](./bricksy/src/assets/images/Screenshot%202025-10-16%20115259.png)
+
 
 
 **Brickssy** is a modern, responsive real estate web application built with **Vite** and **React**. It provides a seamless platform to explore premium properties while showcasing the efficiency and performance of modern frontend technologies.
