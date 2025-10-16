@@ -58,7 +58,3 @@ This project demonstrates modern web development practices using Vite and React 
 📄 License
 This project is licensed under the MIT License — see the LICENSE file for details.
 
-
-- The line  
-  ```markdown
-  ![Brickssy Screenshot](https://github.com/Anjana130997/Bricksy/blob/master/Bricksy/Scre
